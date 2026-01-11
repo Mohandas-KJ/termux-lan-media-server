@@ -4,7 +4,7 @@ from fastapi.responses import HTMLResponse, FileResponse   # Imports for Returni
 import os,shutil        # Imports for OS level operations
 
 # Storage Location
-MOVIE_DIR = "/storage/emulated/0/Movies/"
+MOVIE_DIR = "/storage/Movies/"
 
 # Defining API
 app = FastAPI()
