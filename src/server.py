@@ -16,7 +16,7 @@ os.makedirs(MOVIE_DIR,exist_ok=True)
 @app.get("/",response_class=HTMLResponse)
 def Home():
     files = os.listdir(MOVIE_DIR)                       # Get the list of files
-    file_list = "".join(f"<li>{f}<li>" for f in files)  # Create a list with HTML Tags
+    file_list = "".join(f"<li>{f}</li>" for f in files)  # Create a list with HTML Tags
 
     # Return a HTML Page
     return f"""   
