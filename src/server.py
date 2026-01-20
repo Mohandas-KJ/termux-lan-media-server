@@ -6,6 +6,7 @@ import os,shutil        # Imports for OS level operations
 # New Imports
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from fastapi import Request
 
 # Storage Location
 MOVIE_DIR = "/storage/emulated/0/Movies/"
@@ -20,26 +21,13 @@ os.makedirs(MOVIE_DIR,exist_ok=True)
 app.mount("/static",StaticFiles(directory="static"),name="static")
 
 # Templates Folder
-Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="templates")
 
 # Method for Home Directory
 @app.get("/",response_class=HTMLResponse)
-def Home():
-    files = os.listdir(MOVIE_DIR)                       # Get the list of files
-    file_list = "".join(f"<li>{f}</li>" for f in files)  # Create a list with HTML Tags
-
-    # Return a HTML Page
-    return f"""   
-        <h2>LAN Server</h2
-        <h3>Upload Movie</h3>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <button type="submit">Upload</button>
-        </form>
-
-        <h3>Available Files</h3>
-        <ul>{file_list}</ul>   
-    """
+def Home(request: Request):
+    files = sorted(os.listdir(MOVIE_DIR))  # Get the list of files
+    return templates.TemplateResponse("index.html", {"request": request})  # Return a .html template
 
 # Method for uploading
 @app.post("/upload")
