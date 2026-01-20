@@ -3,6 +3,10 @@ from fastapi import FastAPI, UploadFile, File              # Imports for Uploadi
 from fastapi.responses import HTMLResponse, FileResponse   # Imports for Returning Response
 import os,shutil        # Imports for OS level operations
 
+# New Imports
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+
 # Storage Location
 MOVIE_DIR = "/storage/emulated/0/Movies/"
 
@@ -11,6 +15,12 @@ app = FastAPI()
 
 # Directory Creation
 os.makedirs(MOVIE_DIR,exist_ok=True)
+
+# Mount Server Static Files
+app.mount("/static",StaticFiles(directory="static"),name="static")
+
+# Templates Folder
+Jinja2Templates(directory="templates")
 
 # Method for Home Directory
 @app.get("/",response_class=HTMLResponse)
