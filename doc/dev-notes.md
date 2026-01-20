@@ -17,3 +17,7 @@
 ### Play a File
 - Get the filename
 - return a `FileResponse`
+
+# Enhancement
+- Enhancing the UI
+- The Main objective is to learn about `fastapi`, `javascript`, `html/css` 
