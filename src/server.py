@@ -26,8 +26,13 @@ templates = Jinja2Templates(directory="templates")
 # Method for Home Directory
 @app.get("/",response_class=HTMLResponse)
 def Home(request: Request):
-    files = sorted(os.listdir(MOVIE_DIR))  # Get the list of files
     return templates.TemplateResponse("index.html", {"request": request})  # Return a .html template
+
+# Method for listing the Contents of the directory
+@app.get("/list")
+def list_movies():
+    files = sorted(os.listdir(MOVIE_DIR))  # List all the files in the directory
+    return {"files": files}  # Return a response in the form of a dictionary
 
 # Method for uploading
 @app.post("/upload")
