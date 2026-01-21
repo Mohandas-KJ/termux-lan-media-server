@@ -1,4 +1,4 @@
-body{
+body {
     font-family: Arial, sans-serif;
     padding: 16px;
     background: #0f0f12;
@@ -13,8 +13,21 @@ body{
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.row{
+.row {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+}
+
+input, button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+input {
+    flex: 1;
+    background: #1f1f26;
+    color: white;
 }
