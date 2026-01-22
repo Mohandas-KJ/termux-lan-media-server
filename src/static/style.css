@@ -65,3 +65,9 @@ button.secondary {
     padding: 8px 10px;
     border-radius: 10px;
 }
+
+#status, #uploadStatus {
+    opacity: 0.85;
+    font-size: 14px;
+    margin-top: 8px;
+}
