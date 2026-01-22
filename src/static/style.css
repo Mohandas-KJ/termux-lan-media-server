@@ -31,3 +31,37 @@ input {
     background: #1f1f26;
     color: white;
 }
+
+button {
+    cursor: pointer;
+    background: #3b82f6;
+    color: white;
+    font-weight: bold;
+}
+
+button.secondary {
+    background: #2a2a33;
+}
+
+.movie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    background: #1f1f26;
+    margin-top: 10px;
+}
+
+.name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 60vw;
+}
+
+.actions button {
+    margin-left: 6px;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
