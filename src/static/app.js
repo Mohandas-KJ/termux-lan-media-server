@@ -5,4 +5,16 @@ async function loadmovies() {
 
     status.innerText = "Loading....";
     status.innerHTML = "";
+
+    try{
+        const res = await fetch("/list");
+        const data = await res.json();
+
+        const filtered = data.files.filter(f => f.toLowerCase().includes(query));
+
+        status.innerText = `Found ${filtered.length} file(s).`;
+    }
+    catch(e){
+
+    }
 }
