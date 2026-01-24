@@ -13,6 +13,19 @@ async function loadmovies() {
         const filtered = data.files.filter(f => f.toLowerCase().includes(query));
 
         status.innerText = `Found ${filtered.length} file(s).`;
+
+        for (const file of filtered){
+            const div = document.createElement("div");
+            div.className = "movie";
+
+            const name = document.createElement("div");
+            name.className = "name";
+            name.innerText = file;
+
+            const actions = document.createElement("div");
+            actions.className = "actions";
+
+        }
     }
     catch(e){
 
