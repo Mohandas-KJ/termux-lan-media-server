@@ -25,9 +25,32 @@ async function loadmovies() {
             const actions = document.createElement("div");
             actions.className = "actions";
 
+            const plyButton = document.createElement("button");
+            plyButton.className = "secondary";
+            plyButton.innerText = "Play";
+            plyButton.onclick = () => {
+                window.open(`/play/${encodeURIComponent(file)}`, "_blank");
+            };
+
+            const cpyButton = document.createElement("button");
+            cpyButton.className = "secondary";
+            cpyButton.innerText = "Copy Link";
+            cpyButton.onclick = async () => {
+                const url = `${location.origin}/play/${encodeURIComponent(file)}`;
+                await navigator.clipboard.writeText(url);
+                alert("Copied: " + url);
+            };
+
+            actions.appendChild(plyButton);
+            actions.appendChild(cpyButton);
+
+            div.appendChild(name);
+            div.appendChild(actions);
+
+            container.appendChild(div);
         }
     }
     catch(e){
-
+        status.innerText = "Failed to Load Movies";
     }
 }
