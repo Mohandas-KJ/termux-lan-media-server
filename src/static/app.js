@@ -54,3 +54,40 @@ async function loadmovies() {
         status.innerText = "Failed to Load Movies";
     }
 }
+
+document.getElementsById("refreshBtn").addEventListener("click", loadmovies);
+document.getElementById("search").addEventListener("input", loadmovies);
+
+document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const fileInput = document.getElementById("fileInput");
+    const uploadStatus = document.getElementById("uploadStatus");
+
+    if(!fileInput.files.length){
+        uploadStatus.innerText = "Choose a file first";
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    uploadStatus.innerText = "Uploading....";
+
+    const res = await fetch("/upload", {
+        method: "POST",
+        body: formData
+    });
+
+    if (res.ok){
+        const data = await res.json();
+        uploadStatus.innerText = "Uploaded: " + data.file;
+        fileInput.value = "";
+        loadmovies();
+    }
+    else {
+        uploadStatus.innerText = "Upload failed.";
+    }
+});
+
+loadmovies();
