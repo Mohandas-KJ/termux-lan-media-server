@@ -1,7 +1,7 @@
 async function loadmovies() {
     const status = document.getElementById("status");
-    const container = document.getElementsById("movies");
-    const query = document.getElementsById("search").value.toLowerCase();
+    const container = document.getElementById("movies");
+    const query = document.getElementById("search").value.toLowerCase();
 
     status.innerText = "Loading....";
     status.innerHTML = "";
@@ -13,6 +13,8 @@ async function loadmovies() {
         const filtered = data.files.filter(f => f.toLowerCase().includes(query));
 
         status.innerText = `Found ${filtered.length} file(s).`;
+
+        container.innerHTML = "";
 
         for (const file of filtered){
             const div = document.createElement("div");
@@ -55,7 +57,7 @@ async function loadmovies() {
     }
 }
 
-document.getElementsById("refreshBtn").addEventListener("click", loadmovies);
+document.getElementById("refreshBtn").addEventListener("click", loadmovies);
 document.getElementById("search").addEventListener("input", loadmovies);
 
 document.getElementById("uploadForm").addEventListener("submit", async (e) => {
