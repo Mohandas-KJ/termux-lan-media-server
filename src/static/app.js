@@ -39,8 +39,21 @@ async function loadmovies() {
             cpyButton.innerText = "Copy Link";
             cpyButton.onclick = async () => {
                 const url = `${location.origin}/play/${encodeURIComponent(file)}`;
-                await navigator.clipboard.writeText(url);
-                alert("Copied: " + url);
+                
+                try{
+                    await navigator.clipboard.writeText(url);
+                    alert("Copied: " + url);
+                }
+                catch (err) {
+                    const temp = document.createElement("input");
+                    temp.value = url;
+                    document.body.appendChild(temp);
+                    temp.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(temp);
+
+                    alert("Copied (fallback): " + url);
+                }
             };
 
             actions.appendChild(plyButton);
