@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi import Request
 
 # Storage Location
-MOVIE_DIR = "/mnt/macos/MediaDisk/" # Testing
+MOVIE_DIR = os.getenv("MOVIES_DIR")
 
 # Defining API
 app = FastAPI()
