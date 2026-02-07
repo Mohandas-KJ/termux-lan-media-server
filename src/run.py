@@ -12,3 +12,9 @@ TERMUX = "storage/emulated/0/Movies"
 if len(sys.argv) < 2:
     print("Usage: python run.py /path/to/your/movies <--termux>")
     sys.exit(1)
+
+# Init Environment
+if sys.argv[1] == "--termux":
+    os.environ["MOVIES_DIR"] = TERMUX
+else:
+    os.environ["MOVIES_DIR"] = sys.argv[1]
