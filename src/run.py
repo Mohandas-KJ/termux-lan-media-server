@@ -5,6 +5,8 @@ import sys
 import uvicorn
 import os
 
+Gate = False
+
 # Default path for linux
 TERMUX = "storage/emulated/0/Movies"
 
@@ -16,5 +18,11 @@ if len(sys.argv) < 2:
 # Init Environment
 if sys.argv[1] == "--termux":
     os.environ["MOVIES_DIR"] = TERMUX
+    Gate = True
 else:
     os.environ["MOVIES_DIR"] = sys.argv[1]
+    Gate = True
+
+if not Gate:
+    print("Argument Error. Please recheck")
+    sys.exit(1)
