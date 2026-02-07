@@ -26,3 +26,9 @@ else:
 if not Gate:
     print("Argument Error. Please recheck")
     sys.exit(1)
+
+uvicorn.run(
+    "server:app",
+    host = "0.0.0.0",
+    port = 8000
+)
