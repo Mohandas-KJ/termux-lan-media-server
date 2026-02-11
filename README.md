@@ -66,8 +66,33 @@ pip install fastapi uvicorn python-multipart
 ```
 
 ## ▶️ Running the Server
-## ⚙️ Installation
 **1️⃣ Use Launcher along with path**
 ```bash
 python run.py /path/to/your/dir
 ```
+
+## 🌐 Access the Server
+Find Your IP:
+```bash
+ip a
+```
+
+Then open in browser
+```cpp
+http://YOUR_IP:8000
+```
+
+## 🎬 Streaming
+- Click Play in UI
+- Or copy link and open in VLC
+```arduino
+Media → Open Network Stream
+```
+
+Server supports:
+```css
+HTTP 206 Partial Content
+```
+- Seeking works
+- Large files supported
+- MKV / MP4 Supported
