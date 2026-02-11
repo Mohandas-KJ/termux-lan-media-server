@@ -57,5 +57,17 @@ termux-lan-media-server/
 │       └── app.js
 │
 └── run.py               # Optional launcher script
+```
 
+## ⚙️ Installation
+**1️⃣ Install dependencies**
+```bash
+pip install fastapi uvicorn python-multipart
+```
+
+## ▶️ Running the Server
+## ⚙️ Installation
+**1️⃣ Use Launcher along with path**
+```bash
+python run.py /path/to/your/dir
 ```
