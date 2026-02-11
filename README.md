@@ -120,3 +120,15 @@ Do NOT expose it directly to the public internet without:
 - Reverse proxy
 - HTTPS
 - Firewall rules
+
+## ❤️ Author
+
+This project was built to:
+
+- Explore JavaScript and modern web technologies alongside a cybersecurity background  
+- Solve a real home-network media sharing problem  
+- Avoid unreliable SMB behavior across multiple devices  
+- Create a simple, universal HTTP-based solution  
+- Support seamless usage across different operating systems  
+
+This server was developed as a practical experiment in clean, minimal, cross-platform design.
