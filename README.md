@@ -11,9 +11,51 @@ Supports:
 - 📡 Byte-range streaming (206 Partial Content → seeking works)
 
 ## 🚀 Why This Project?
-SMB was painful.
-Storage on old Android was limited.
+SMB was painful.  
+Storage on old Android was limited.  
 OS switching was inconvenient.
 
-So this project provides:
+So this project provides:  
 A simple HTTP-based LAN media server that works across all devices without OS dependency.
+
+## 🏗 Architecture
+```scss
+Client (Phone / VLC / Browser)
+        │
+        ▼
+   FastAPI Server
+        │
+        ▼
+   Movies Directory (Custom Path)
+```
+
+- Backend: Python + FastAPI
+- Frontend: HTML + CSS + Vanilla JS
+- Streaming: HTTP Range Requests
+- Protocol: Pure HTTP (no SMB)
+
+## 📁 Project Structure
+```pgsql
+termux-lan-media-server/
+│
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+├── doc/
+│   └── dev-notes.md
+│
+├── src/
+│   ├── main.py          # Entry point (uvicorn target)
+│   ├── config.py        # Environment + settings
+│   │
+│   ├── templates/
+│   │   └── index.html
+│   │
+│   └── static/
+│       ├── style.css
+│       └── app.js
+│
+└── run.py               # Optional launcher script
+
+```
