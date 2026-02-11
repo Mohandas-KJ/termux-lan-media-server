@@ -96,3 +96,27 @@ HTTP 206 Partial Content
 - Seeking works
 - Large files supported
 - MKV / MP4 Supported
+
+## 📤 Uploading Files
+Use the web UI Upload Form
+or
+```bash
+curl -F "file=@movie.mp4" http://IP:8000/upload
+```
+
+## 🧠 Technical Notes
+- URL-encoded filenames supported
+- Byte-range requests implemented
+- Frontend dynamically re-renders movie list
+- No database (filesystem-based)
+- No authentication (LAN-only usage recommended)
+
+## 🔐 Security Warning
+This server is designed for:
+- Local network usage only
+
+Do NOT expose it directly to the public internet without:
+- Authentication
+- Reverse proxy
+- HTTPS
+- Firewall rules
