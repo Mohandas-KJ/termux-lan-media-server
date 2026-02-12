@@ -22,7 +22,7 @@ async function loadmovies() {
 
             const name = document.createElement("div");
             name.className = "name";
-            name.innerText = file;
+            name.innerText = file;   // Under Development
 
             const actions = document.createElement("div");
             actions.className = "actions";
@@ -31,14 +31,14 @@ async function loadmovies() {
             plyButton.className = "secondary";
             plyButton.innerText = "Play";
             plyButton.onclick = () => {
-                window.open(`/play/${encodeURIComponent(file)}`, "_blank");
+                window.open(`/play/${encodeURIComponent(file.name)}`, "_blank");
             };
 
             const cpyButton = document.createElement("button");
             cpyButton.className = "secondary";
             cpyButton.innerText = "Copy Link";
             cpyButton.onclick = async () => {
-                const url = `${location.origin}/play/${encodeURIComponent(file)}`;
+                const url = `${location.origin}/play/${encodeURIComponent(file.name)}`;
                 
                 try{
                     await navigator.clipboard.writeText(url);
