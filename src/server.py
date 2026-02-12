@@ -31,8 +31,17 @@ def Home(request: Request):
 # Method for listing the Contents of the directory
 @app.get("/list")
 def list_movies():
-    files = sorted(os.listdir(MOVIE_DIR))  # List all the files in the directory
-    return {"files": files}  # Return a response in the form of a dictionary
+    files = []
+
+    for f in sorted(os.listdir(MOVIE_DIR)):
+        path = os.path.join(MOVIE_DIR,f)
+        if os.path.isfile(path):
+            size = os.path.getsize(path)
+            files.append({
+                "name": f,
+                "size": size
+            })
+    return {"files": files}
 
 # Method for uploading
 @app.post("/upload")
