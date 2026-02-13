@@ -34,7 +34,7 @@ async function loadmovies() {
 
             const name = document.createElement("div");
             name.className = "name";
-            name.innerText = file;   // Under Development
+            name.innerText = file.name + " (" + formatSize(file.size) + ")";
 
             const actions = document.createElement("div");
             actions.className = "actions";
