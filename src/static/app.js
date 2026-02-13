@@ -1,3 +1,15 @@
+function formatSize(bytes){
+    const units = ["B","KB","MB","GB","TB"];
+    let i = 0;
+
+    while (bytes >= 1024 && i < units.length - 1){
+        bytes /= 1024;
+        i++;
+    }
+
+    return bytes.toFixed(1) + " " + units[i];
+}
+
 async function loadmovies() {
     const status = document.getElementById("status");
     const container = document.getElementById("movies");
@@ -10,7 +22,7 @@ async function loadmovies() {
         const res = await fetch("/list");
         const data = await res.json();
 
-        const filtered = data.files.filter(f => f.toLowerCase().includes(query));
+        const filtered = data.files.filter(f => f.name.toLowerCase().includes(query));
 
         status.innerText = `Found ${filtered.length} file(s).`;
 
