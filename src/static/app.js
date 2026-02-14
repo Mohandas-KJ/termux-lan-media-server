@@ -14,6 +14,8 @@ async function loadmovies() {
     const status = document.getElementById("status");
     const container = document.getElementById("movies");
     const query = document.getElementById("search").value.toLowerCase();
+    const indicator = document.getElementById("occupied");
+    const total_size = 0;
 
     status.innerText = "Loading....";
     status.innerHTML = "";
