@@ -1,5 +1,5 @@
 function TotalSize(files_f){
-    const total = 0;
+    let total = 0;
 
     for (const f of files_f){
         total += f.size;
@@ -29,8 +29,6 @@ async function loadmovies() {
     status.innerText = "Loading....";
     status.innerHTML = "";
 
-    
-
     try{
         const res = await fetch("/list");
         const data = await res.json();
@@ -42,7 +40,7 @@ async function loadmovies() {
         container.innerHTML = "";
         total_size = formatSize(TotalSize(filtered));
 
-        indicator.innerText = `Total Size: ${total_size}`
+        indicator.innerText = `Total Size: ${total_size}`;
 
 
         for (const file of filtered){
