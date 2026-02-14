@@ -38,7 +38,7 @@ async function loadmovies() {
         status.innerText = `Found ${filtered.length} file(s).`;
 
         container.innerHTML = "";
-        total_size = formatSize(TotalSize(filtered));
+        const total_size = formatSize(TotalSize(filtered));
 
         indicator.innerText = `Total Size: ${total_size}`;
 
