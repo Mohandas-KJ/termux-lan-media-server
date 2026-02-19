@@ -1,3 +1,13 @@
+function TotalSize(files_f){
+    let total = 0;
+
+    for (const f of files_f){
+        total += f.size;
+    }
+
+    return total;
+}
+
 function formatSize(bytes){
     const units = ["B","KB","MB","GB","TB"];
     let i = 0;
@@ -14,6 +24,7 @@ async function loadmovies() {
     const status = document.getElementById("status");
     const container = document.getElementById("movies");
     const query = document.getElementById("search").value.toLowerCase();
+    const indicator = document.getElementById("occupied");
 
     status.innerText = "Loading....";
     status.innerHTML = "";
@@ -27,6 +38,10 @@ async function loadmovies() {
         status.innerText = `Found ${filtered.length} file(s).`;
 
         container.innerHTML = "";
+        const total_size = formatSize(TotalSize(filtered));
+
+        indicator.innerText = `Total Size: ${total_size}`;
+
 
         for (const file of filtered){
             const div = document.createElement("div");
