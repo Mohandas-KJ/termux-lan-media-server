@@ -1,3 +1,8 @@
+let currentfilter = "all";
+
+let videofilter = ["mp4","mkv","avi","mov"];
+let imagefilter = ["jpg","jpeg","png","webp"]
+
 function TotalSize(files_f){
     let total = 0;
 
