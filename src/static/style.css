@@ -73,9 +73,10 @@ button.secondary {
 }
 
 .button-group{
+    margin-top: 10px;
     display: flex;
-    gap: 8px;
-    margin-bottom: 10px;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .filter-btn{
