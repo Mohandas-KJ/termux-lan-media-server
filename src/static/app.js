@@ -1,7 +1,19 @@
 let currentfilter = "all";
 
 let videofilter = ["mp4","mkv","avi","mov"];
-let imagefilter = ["jpg","jpeg","png","webp"]
+let imagefilter = ["jpg","jpeg","png","webp"];
+
+document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+
+        btn.classList.add("active")
+
+        currentfilter = btn.dataset.filter;
+
+        loadmovies();
+    });
+});
 
 function TotalSize(files_f){
     let total = 0;
